@@ -7,7 +7,7 @@
  * Text component for rendering various text variants with dark mode support.
  *
  * @param {Object} props
- * @param {"h1"|"h2"|"h3"|"h4"|"p"|"span"} props.variant - The HTML tag to render.
+ * @param {"heading"|"h2"|"h3"|"h4"|"p"|"span"} props.variant - The HTML tag to render.
  * @param {string} props.content - The text content to display.
  * @param {string} [props.className] - Optional Tailwind classes for extra styling.
  * @returns {JSX.Element}
