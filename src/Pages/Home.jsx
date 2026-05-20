@@ -1,112 +1,306 @@
-import { useState } from "react";
-import { Text } from "../components/UI/Text";
-import toast from "react-hot-toast";
-import { Navbar } from "../components/UI/NavBar";
-import { About } from "../components/UI/About";
-import { Footer } from "../components/UI/Footer";
-import { FaAngleUp, FaAngleDown } from "react-icons/fa6";
-import { Projects } from "../components/UI/Projects";
-import { LetsConnect } from "../components/UI/LetsConnect";
-import { Testimonials } from "../components/UI/Testimonials";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-const Home = () => {
-  const [isDark, setIsDark] = useState(false);
+import { Navbar } from "../components/UI/NavBar";
+import { Experience } from "../components/UI/Experienve";
+import { Projects } from "../components/UI/Projects";
+import { Skills } from "../components/UI/Skills";
+import { Education } from "../components/UI/Education";
+import { Footer } from "../components/UI/Footer";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
+import { FiArrowDown } from "react-icons/fi";
+
+const SocialLink = ({ href, icon: Icon, label }) => (
+  <a
+    href={href}
+    target="_blank"
+    className="flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-black dark:hover:text-white transition-colors"
+    title={label}
+  >
+    <Icon size={18} />
+    {label}
+  </a>
+);
+
+const SummarySection = () => (
+  <section className="w-full max-w-4xl mx-auto px-6 py-16">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
+      <h2 className="text-4xl md:text-5xl font-extrabold text-black dark:text-white mb-2">
+        About<span className="text-gray-300 dark:text-gray-600">.</span>
+      </h2>
+      <div className="max-w-3xl space-y-4 text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+        <p>
+          Full-Stack Engineer specializing in platform infrastructure — building
+          for scale. Expert in Go/Node.js, cloud architecture (GCP), and
+          distributed systems (Redis, MQTT, IoT).
+        </p>
+        <p>
+          Delivered measurable impact: <strong className="text-black dark:text-white">80% database cost reduction</strong>,
+          <strong className="text-black dark:text-white"> 500ms API latency improvement</strong>, and secure OTA
+          infrastructure for IoT fleet. Passionate about enabling teams to ship
+          fast and operate reliably.
+        </p>
+      </div>
+    </motion.div>
+  </section>
+);
+
+const BeyondCodeSection = () => (
+  <section className="w-full max-w-4xl mx-auto px-6 py-16">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
+      <h2 className="text-4xl md:text-5xl font-extrabold text-black dark:text-white mb-2">
+        Beyond Code<span className="text-gray-300 dark:text-gray-600">.</span>
+      </h2>
+      <div className="max-w-3xl space-y-4 text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+        <p>
+          I&apos;m <strong className="text-black dark:text-white">Siddhant Kadam</strong> — a
+          software engineer who crafts more than just features. I design secure,
+          scalable, and maintainable backend systems built to last.
+        </p>
+        <p>
+          From building <strong className="text-black dark:text-white">real-time systems</strong>{" "}
+          with WebSockets, RabbitMQ, and MQTT to designing{" "}
+          <strong className="text-black dark:text-white">OTA pipelines</strong> on Linux devices
+          and CI/CD flows with Docker — I go deep into the architecture that
+          powers modern systems.
+        </p>
+        <p>
+          I&apos;m obsessed with <strong className="text-black dark:text-white">learning</strong>
+          . Whether it&apos;s reading technical blogs, exploring system design
+          strategies, or diving into backend architecture books — I love
+          understanding how things really work.
+        </p>
+        <p>
+          For me, software isn&apos;t just about shipping code — it&apos;s about
+          building with{" "}
+          <strong className="text-black dark:text-white">
+            clarity, sustainability, and intent
+          </strong>
+          .
+        </p>
+      </div>
+    </motion.div>
+  </section>
+);
+
+const TestimonialsSection = () => {
+  const testimonials = [
+    {
+      name: "Satyan Rajmani",
+      role: "Chair Person, Crt Bionics Australia",
+      feedback:
+        "Siddhant has a rare ability to deeply understand system internals and translate that into scalable backend architecture. Working with him improved our deployment cycle and backend efficiency significantly.",
+    },
+    {
+      name: "Sushant Kant",
+      role: "CEO, Work Technologies",
+      feedback:
+        "Reliable, fast, and always thinking ahead. Siddhant's approach to problem solving and clean code made a real impact on our platform performance and stability.",
+    },
+  ];
 
   return (
-    <div className="h-[100dvh] w-screen overflow-hidden bg-white transition-colors p-10">
-      <div className="h-[10%]">
-        <Navbar />
+    <section className="w-full max-w-4xl mx-auto px-6 py-16">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <h2 className="text-4xl md:text-5xl font-extrabold text-black dark:text-white mb-2">
+          What People Say<span className="text-gray-300 dark:text-gray-600">.</span>
+        </h2>
+        <p className="text-gray-500 dark:text-gray-400 text-lg mb-10 max-w-2xl">
+          Feedback from clients and collaborators.
+        </p>
+      </motion.div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {testimonials.map((t, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1, duration: 0.4 }}
+            className="border border-gray-200 dark:border-gray-800 rounded-2xl p-6 bg-white dark:bg-[#111]"
+          >
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4 italic">
+              &ldquo;{t.feedback}&rdquo;
+            </p>
+            <div>
+              <p className="text-sm font-bold text-black dark:text-white">{t.name}</p>
+              <p className="text-xs text-gray-400 dark:text-gray-500">{t.role}</p>
+            </div>
+          </motion.div>
+        ))}
       </div>
-      <div className="h-[85%] w-full overflow-y-scroll relative">
-        {/* Home */}
-        <motion.div
-          className="h-full lg:w-[50%] w-screen flex flex-col justify-center"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+    </section>
+  );
+};
+
+const ContactSection = () => (
+  <section id="contact" className="w-full max-w-4xl mx-auto px-6 py-16">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
+      <h2 className="text-4xl md:text-5xl font-extrabold text-black dark:text-white mb-2">
+        Let&apos;s Connect<span className="text-gray-300 dark:text-gray-600">.</span>
+      </h2>
+      <p className="text-gray-500 dark:text-gray-400 text-lg mb-10 max-w-2xl">
+        Got a challenging system to design? I&apos;d love to hear about it.
+      </p>
+
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl">
+        <a
+          href="mailto:siddh4194@gmail.com"
+          className="group border border-gray-200 dark:border-gray-800 rounded-xl p-5 bg-white dark:bg-[#111] hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-sm transition-all"
         >
-          <h1 className="text-4xl md:text-5xl font-extrabold text-black pb-10 leading-tight">
-            Code that matters<span className="text-gray-500">.</span>
-            <br />
-            Architecture that scales<span className="text-gray-500">.</span>
-          </h1>
-
-          <motion.h2
-            className="text-gray-700 text-3xl font-semibold mt-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-          >
-            Hi, I’m Siddhant — a software engineer focused on building reliable,
-            scalable systems.
-          </motion.h2>
-
-          <motion.p
-            className="text-gray-600 text-xl font-normal mt-4 max-w-2xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            I specialize in clean architecture, secure APIs, real-time
-            infrastructure, and system-level automation — turning ideas into
-            production-ready solutions.
-          </motion.p>
-        </motion.div>
-
-        {/* Projects */}
-        <Projects />
-
-        {/* Beyond Code */}
-        <div className="h-full lg:w-[50%] w-screen flex flex-col justify-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-black pb-10">
-            Beyond Code
-            <span className="text-gray-500">.</span>
-          </h1>
-          <p className="text-xl text-gray-800 leading-relaxed mb-6">
-            I'm <span className="font-semibold text-black">Siddhant Kadam</span>{" "}
-            — a software engineer who crafts more than just features. I design
-            secure, scalable, and maintainable backend systems built to last.
+          <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1">
+            General
           </p>
-
-          <p className="text-xl text-gray-800 leading-relaxed mb-6">
-            From building{" "}
-            <span className="font-semibold">real-time systems</span> with
-            WebSockets, RabbitMQ, and MQTT to designing{" "}
-            <span className="font-semibold">OTA pipelines</span> on Linux
-            devices and CI/CD flows with Docker — I go deep into the
-            architecture that powers modern systems.
+          <p className="text-sm font-medium text-black dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
+            siddh4194@gmail.com
           </p>
-
-          <p className="text-xl text-gray-800 leading-relaxed mb-6">
-            I’m obsessed with <span className="font-semibold">learning</span>.
-            Whether it's reading technical blogs, exploring system design
-            strategies, or diving into backend architecture books — I love
-            understanding how things really work.
+        </a>
+        <a
+          href="mailto:siddhantkadam.career@gmail.com"
+          className="group border border-gray-200 dark:border-gray-800 rounded-xl p-5 bg-white dark:bg-[#111] hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-sm transition-all"
+        >
+          <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1">
+            Careers
           </p>
-
-          <p className="text-xl text-gray-800 leading-relaxed">
-            For me, software isn’t just about shipping code — it's about
-            building with{" "}
-            <span className="font-semibold text-black">
-              clarity, sustainability, and intent
-            </span>
-            .
+          <p className="text-sm font-medium text-black dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
+            siddhantkadam.career@gmail.com
           </p>
-        </div>
-
-        <Testimonials />
-
-        <LetsConnect />
-
-        <div className=" flex flex-col gap-2 fixed bottom-30 right-30">
-          <div className="p-2 rounded-full border-2 border-gray-500 w-fit cursor-pointer">
-            <FaAngleUp className="text-gray-500" size={20} />
-          </div>
-          <div className="p-2 rounded-full border-2 border-gray-500 w-fit cursor-pointer">
-            <FaAngleDown className="text-gray-500" size={20} />
-          </div>
-        </div>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/siddhant-kadam/"
+          target="_blank"
+          className="group border border-gray-200 dark:border-gray-800 rounded-xl p-5 bg-white dark:bg-[#111] hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-sm transition-all"
+        >
+          <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1">
+            LinkedIn
+          </p>
+          <p className="text-sm font-medium text-black dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
+            Connect on LinkedIn
+          </p>
+        </a>
       </div>
+    </motion.div>
+  </section>
+);
+
+const HeroSection = () => (
+  <section className="min-h-[100dvh] flex flex-col justify-center px-6 max-w-4xl mx-auto w-full">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      <p className="font-mono text-xs text-gray-400 dark:text-gray-500 mb-4 tracking-widest uppercase">
+        Full-Stack Engineer · Platform Infrastructure
+      </p>
+      <h1 className="text-4xl md:text-7xl font-extrabold text-black dark:text-white leading-tight">
+        Code that matters<span className="text-gray-300 dark:text-gray-600">.</span>
+        <br />
+        Architecture that scales<span className="text-gray-300 dark:text-gray-600">.</span>
+      </h1>
+
+      <motion.p
+        className="text-gray-500 dark:text-gray-400 text-lg mt-6 max-w-xl leading-relaxed"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+      >
+        I&apos;m Siddhant Kadam — building platform infrastructure, distributed
+        systems, and developer tooling that enable teams to ship fast and
+        operate reliably.
+      </motion.p>
+
+      <motion.div
+        className="flex items-center gap-5 mt-8"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+      >
+        <SocialLink href="mailto:siddh4194@gmail.com" icon={HiOutlineMail} label="Email" />
+        <SocialLink href="https://github.com/Siddh4194" icon={FaGithub} label="GitHub" />
+        <SocialLink href="https://www.linkedin.com/in/siddhant-kadam/" icon={FaLinkedin} label="LinkedIn" />
+      </motion.div>
+
+      <motion.div
+        className="mt-16"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8, duration: 0.6 }}
+      >
+        <a
+          href="#experience"
+          className="inline-flex items-center gap-2 text-sm font-medium text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors animate-bounce"
+        >
+          <FiArrowDown size={16} />
+          Explore my work
+        </a>
+      </motion.div>
+    </motion.div>
+  </section>
+);
+
+const Home = () => {
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("theme");
+      if (stored) return stored === "dark";
+      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDark) {
+      root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDark]);
+
+  const toggleDark = () => setIsDark((prev) => !prev);
+
+  return (
+    <div className="bg-white dark:bg-[#0a0a0a] transition-colors duration-300">
+      <div className="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-900 px-6 py-4">
+        <Navbar isDark={isDark} toggleDark={toggleDark} />
+      </div>
+
+      <main className="pt-20">
+        <HeroSection />
+        <Experience />
+        <Projects />
+        <Skills />
+        <SummarySection />
+        <BeyondCodeSection />
+        <TestimonialsSection />
+        <Education />
+        <ContactSection />
+      </main>
+
       <Footer />
     </div>
   );
