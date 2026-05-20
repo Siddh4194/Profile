@@ -17,9 +17,18 @@ const CaseStudy3rdStep = () => {
         <title>3rd Step Verification — Case Study</title>
         <meta name="description" content="A cryptographic hash-chain verification system that eliminates anonymous social media abuse. Every post tied to a verified user hash." />
         <link rel="canonical" href="https://Siddh4194.github.io/Profile/case-study/3rd-step-verification" />
+
+        <meta property="og:type" content="article" />
         <meta property="og:title" content="3rd Step Verification — Case Study" />
         <meta property="og:description" content="Chained cryptographic hashes for social media accountability — preventing anonymous abuse by tying every post to a verified user hash." />
         <meta property="og:url" content="https://Siddh4194.github.io/Profile/case-study/3rd-step-verification" />
+        <meta property="og:image" content="https://Siddh4194.github.io/Profile/og-image.svg" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="3rd Step Verification — Case Study" />
+        <meta name="twitter:description" content="Chained cryptographic hashes for social media accountability — preventing anonymous abuse by tying every post to a verified user hash." />
+        <meta name="twitter:image" content="https://Siddh4194.github.io/Profile/og-image.svg" />
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

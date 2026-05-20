@@ -15,11 +15,11 @@ export const Navbar = ({ isDark, toggleDark, activeSection }) => {
 
   return (
     <nav className="flex justify-between items-center text-black dark:text-white px-2">
-      <a href="#" className="text-2xl font-bold tracking-tight">
+      <a href="#" className="text-xl font-semibold tracking-tight">
         Siddhant<span className="text-gray-400">Kadam</span>
       </a>
 
-      <div className="hidden md:flex items-center gap-1">
+      <div className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => {
           const isActive = activeSection === link.href.slice(1);
           return (

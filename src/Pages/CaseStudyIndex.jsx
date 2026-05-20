@@ -26,15 +26,38 @@ const caseStudies = [
 ];
 
 const CaseStudyIndex = () => {
+  const siteUrl = "https://Siddh4194.github.io/Profile";
   return (
     <div className="bg-white dark:bg-[#0a0a0a] min-h-screen transition-colors duration-300">
       <Helmet>
         <title>Case Studies — Siddhant Kadam</title>
-        <meta name="description" content="Deep dives into projects I've built — from problem to solution." />
-        <link rel="canonical" href="https://Siddh4194.github.io/Profile/case-study" />
+        <meta name="description" content="Deep dives into projects I've built — from problem to solution. Landslide detection, cryptographic verification, and more." />
+        <link rel="canonical" href={`${siteUrl}/case-study`} />
+
+        <meta property="og:type" content="website" />
         <meta property="og:title" content="Case Studies — Siddhant Kadam" />
         <meta property="og:description" content="Deep dives into projects I've built — from problem to solution." />
-        <meta property="og:url" content="https://Siddh4194.github.io/Profile/case-study" />
+        <meta property="og:url" content={`${siteUrl}/case-study`} />
+        <meta property="og:image" content={`${siteUrl}/og-image.svg`} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Case Studies — Siddhant Kadam" />
+        <meta name="twitter:description" content="Deep dives into projects I've built — from problem to solution." />
+        <meta name="twitter:image" content={`${siteUrl}/og-image.svg`} />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Case Studies — Siddhant Kadam",
+            "description": "Deep dives into projects I've built — from problem to solution.",
+            "url": `${siteUrl}/case-study`,
+            "author": {
+              "@type": "Person",
+              "name": "Siddhant Kadam"
+            }
+          })}
+        </script>
       </Helmet>
       {/* Top bar */}
       <div className="sticky top-0 z-50 bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-900 px-6 py-4">

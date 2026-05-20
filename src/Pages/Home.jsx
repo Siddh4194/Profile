@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Navbar } from "../components/UI/NavBar";
+import { MobileBottomNav } from "../components/UI/MobileBottomNav";
 import { Experience } from "../components/UI/Experienve";
 import { Projects } from "../components/UI/Projects";
 import { Skills } from "../components/UI/Skills";
@@ -27,33 +28,9 @@ const SocialLink = ({ href, icon: Icon, label }) => (
   </a>
 );
 
-const SummarySection = () => (
-  <section className="w-full max-w-4xl mx-auto px-6 py-16">
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-    >
-      <h2 className="text-4xl md:text-5xl font-extrabold text-black dark:text-white mb-2">
-        About<span className="text-gray-300 dark:text-gray-600">.</span>
-      </h2>
-      <div className="max-w-3xl space-y-4 text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
-        <p>
-          Full-Stack Engineer specializing in platform infrastructure — building
-          for scale. Expert in Go/Node.js, cloud architecture (GCP), and
-          distributed systems (Redis, MQTT, IoT).
-        </p>
-        <p>
-          Delivered measurable impact: <strong className="text-black dark:text-white">80% database cost reduction</strong>,
-          <strong className="text-black dark:text-white"> 500ms API latency improvement</strong>, and secure OTA
-          infrastructure for IoT fleet. Passionate about enabling teams to ship
-          fast and operate reliably.
-        </p>
-      </div>
-    </motion.div>
-  </section>
-);
+
+
+
 
 const BeyondCodeSection = () => (
   <section className="w-full max-w-4xl mx-auto px-6 py-16">
@@ -84,6 +61,14 @@ const BeyondCodeSection = () => (
           . Whether it&apos;s reading technical blogs, exploring system design
           strategies, or diving into backend architecture books — I love
           understanding how things really work.
+        </p>
+        <p>
+          I read every day — mostly self-help books, sometimes a novel when I
+          want to unwind. When stress creeps in, I play chess or solve sudoku
+          puzzles; they help me reset. I also love cooking and farming, which
+          ground me and bring back a sense of gratitude. And I follow
+          international news closely — understanding the world beyond code keeps
+          things in perspective.
         </p>
         <p>
           For me, software isn&apos;t just about shipping code — it&apos;s about
@@ -228,6 +213,9 @@ const HeroSection = () => (
       <p className="font-mono text-xs text-gray-400 dark:text-gray-500 mb-4 tracking-widest uppercase">
         Full-Stack Engineer · Platform Infrastructure
       </p>
+      <p className="font-mono text-xs text-gray-400 dark:text-gray-400 mb-4">
+        Maharashtra, India
+      </p>
       <h1 className="text-4xl md:text-7xl font-extrabold text-black dark:text-white leading-tight">
         Code that matters<span className="text-gray-300 dark:text-gray-600">.</span>
         <br />
@@ -334,13 +322,14 @@ const Home = () => {
         <link rel="canonical" href="https://Siddh4194.github.io/Profile/" />
 
         <meta property="og:url" content="https://Siddh4194.github.io/Profile/" />
-        <meta property="og:title" content="Siddhant Kadam · Full-Stack &amp; Platform Infrastructure Engineer" />
-        <meta property="og:description" content="Building infrastructure for scale. Go/Node.js, GCP, Redis, MQTT, IoT. 1st Prize — Landslide Early Detection System." />
+        <meta property="og:image" content="https://Siddh4194.github.io/Profile/og-image.svg" />
         <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Siddhant Kadam" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Siddhant Kadam · Full-Stack &amp; Platform Infrastructure Engineer" />
         <meta name="twitter:description" content="Building infrastructure for scale. Go/Node.js, GCP, Redis, MQTT, IoT." />
+        <meta name="twitter:image" content="https://Siddh4194.github.io/Profile/og-image.svg" />
 
         <script type="application/ld+json">
           {JSON.stringify({
@@ -349,8 +338,9 @@ const Home = () => {
             "name": "Siddhant Kadam",
             "url": "https://Siddh4194.github.io/Profile/",
             "email": "siddh4194@gmail.com",
+            "image": "https://Siddh4194.github.io/Profile/og-image.svg",
             "jobTitle": "Full-Stack & Platform Infrastructure Engineer",
-            "knowsAbout": ["Go", "Node.js", "GCP", "Redis", "MQTT", "IoT", "Distributed Systems", "Kubernetes"],
+            "knowsAbout": ["Go", "Node.js", "GCP", "Redis", "MQTT", "IoT", "Distributed Systems", "PostgreSQL", "Docker"],
             "sameAs": [
               "https://github.com/Siddh4194",
               "https://www.linkedin.com/in/siddhant-kadam/"
@@ -368,7 +358,6 @@ const Home = () => {
         <Experience />
         <Projects />
         <Skills />
-        <SummarySection />
         <BeyondCodeSection />
         <TestimonialsSection />
         <BlogSection />
@@ -376,6 +365,7 @@ const Home = () => {
         <ContactSection />
       </main>
 
+      <MobileBottomNav activeSection={activeSection} />
       <Footer />
       <ScrollToTop />
     </div>

@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 const projects = [
   {
     title: "AI Agent — Load Balancer Monitor & Diagnostician",
-    desc: "An intelligent agent that continuously monitors a load balancer and its nodes. When a node turns unhealthy, the agent autonomously SSHes into the server, diagnoses the root cause (CPU spike, memory exhaustion, disk full, crashed process), and reports findings — reducing MTTR without human intervention.",
+    desc: "An intelligent agent that continuously monitors a load balancer and its nodes. When a node turns unhealthy, the agent autonomously SSHes into the server, diagnoses the root cause, and reports findings — reducing MTTR without human intervention.",
     stack: ["Go", "LLM", "Infrastructure Automation", "Distributed Systems"],
     url: "https://github.com/Siddh4194",
     status: "In Progress",
+    result: "Reducing MTTR from hours to minutes",
   },
   {
     title: "3rd Step Verification",
@@ -18,6 +19,8 @@ const projects = [
     caseStudyLink: "/case-study/3rd-step-verification",
     articleUrl: "https://www.thehindu.com/news/cities/mumbai/at-least-one-dead-10-injured-internet-suspended-in-maharashtras-satara-over-social-media-post/article67295790.ece",
     status: "Completed",
+    period: "Oct 2023 – May 2024",
+    result: "Eliminates anonymous posting via cryptographic identity",
   },
   {
     title: "Speak to Doc",
@@ -25,6 +28,8 @@ const projects = [
     stack: ["Web Speech API", "Google Gen AI API", "LLM", "Accessibility"],
     url: "https://github.com/Siddh4194/Speec-To-Doc",
     status: "Completed",
+    period: "Aug 2023 – Sep 2023",
+    result: "Voice-driven accessibility for note-making",
   },
   {
     title: "NMCOE AI Chatbot",
@@ -32,15 +37,17 @@ const projects = [
     stack: ["LLM", "Few-shot Prompting", "AI", "Contextual AI"],
     url: "https://aptous-nmce.vercel.app/",
     status: "Completed",
+    result: "Automated admissions query handling",
   },
   {
     title: "Landslide Early Detection System",
-    desc: 'Inspired by the Taliye landslide tragedy in Maharashtra (covered by Hindustan Times), built an early detection system using copper rods embedded in soil. When the ground shifts, the rod position changes, triggering an alarm. Simple, mechanical, effective. Won 1st Prize in the project competition.',
+    desc: 'Inspired by the Taliye landslide tragedy in Maharashtra (covered by Hindustan Times), built an early detection system using copper rods embedded in soil. When the ground shifts, the rod position changes, triggering an alarm. Simple, mechanical, effective.',
     stack: ["Sensor Prototyping", "Hardware", "Mechanical Trigger", "Embedded Systems"],
     articleUrl: "https://www.hindustantimes.com/india-news/hopes-of-finding-survivors-in-landslide-hit-maharashtra-villages-fade-101627111873712.html",
     caseStudyLink: "/case-study/landslide-detection",
     url: null,
     status: "1st Prize",
+    result: "1st Prize — proven mechanical detection system",
   },
 ];
 
@@ -86,9 +93,20 @@ export const Projects = () => {
                 {project.status}
               </span>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+            {project.period && (
+              <p className="text-xs font-mono text-gray-400 dark:text-gray-500 mb-2">
+                {project.period}
+              </p>
+            )}
+            <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-3">
               {project.desc}
             </p>
+            {project.result && (
+              <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-3 flex items-center gap-1.5">
+                <span className="w-1 h-1 rounded-full bg-gray-400 dark:bg-gray-500" />
+                {project.result}
+              </p>
+            )}
             <div className="flex flex-wrap gap-1.5 mb-4">
               {project.stack.map((tech, j) => (
                 <span

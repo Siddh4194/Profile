@@ -31,7 +31,7 @@ const linkify = (text) => {
 
 const experienceData = [
   {
-    company: "Krishworks Technology and Research Labs Pvt. Ltd",
+    company: "Krishworks Technology Innovations",
     role: "Software Developer",
     period: "June 2024 – Present",
     website: "https://krishworkstech.com/",
@@ -67,6 +67,7 @@ const experienceData = [
         Icon: HiOutlineDesktopComputer,
         items: [
           "Built SaaS admin dashboard ahead of schedule using TypeScript + Next.js 19, leveraging React 19 async UI patterns (Server Components, Suspense). Established frontend architecture best practices adopted across team.",
+          "Built automatic translation generation for multi-language SaaS platform using Google Translate API with tiered caching strategy: Redis for server-side hot data, IndexedDB for browser-side persistence — reducing page load times by 1.4 seconds and cutting egress costs.",
           "Implemented multilingual frontend caching (IndexedDB), reducing page load times by 1.4 seconds for international users and cutting Firebase egress costs by 80%.",
         ],
       },
@@ -84,6 +85,7 @@ const experienceData = [
         Icon: HiOutlineCube,
         items: [
           "Architected and delivered multiple production-ready client websites and applications using React, Node.js, and TailwindCSS.",
+          "Designed scalable frontend architecture with reusable components for maintainable UI development across client projects.",
           "Work Technologies (https://worktechnologies.co.in) — company website with responsive UI, built from scratch using React + TailwindCSS.",
           "Ctop India (https://ctopindia.com) — client website with modern design and optimized performance.",
           "CRT Bionics — admin dashboard + payment integration, boosting performance and UX.",
