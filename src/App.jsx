@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Home from "./Pages/Home";
@@ -5,7 +6,8 @@ import CaseStudyLandslide from "./Pages/CaseStudyLandslide";
 import CaseStudy3rdStep from "./Pages/CaseStudy3rdStep";
 import CaseStudyIndex from "./Pages/CaseStudyIndex";
 import { CursorFollower } from "./components/UI/CursorFollower";
-import { AIChat } from "./components/UI/AIChat";
+
+const AIChat = lazy(() => import("./components/UI/AIChat"));
 
 function App() {
   const basename = import.meta.env.PROD ? "/Profile" : "/";
@@ -13,7 +15,7 @@ function App() {
     <HelmetProvider>
       <BrowserRouter basename={basename}>
         <CursorFollower />
-        <AIChat />
+        <Suspense fallback={null}><AIChat /></Suspense>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/case-study" element={<CaseStudyIndex />} />

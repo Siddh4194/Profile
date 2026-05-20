@@ -43,7 +43,7 @@ const BotMessage = ({ text }) => (
   </ReactMarkdown>
 );
 
-export const AIChat = () => {
+const AIChat = () => {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([WELCOME_MESSAGE]);
   const [input, setInput] = useState("");
@@ -172,7 +172,9 @@ export const AIChat = () => {
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
+          </AnimatePresence>
     </>
   );
 };
+
+export default AIChat;

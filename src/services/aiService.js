@@ -88,7 +88,7 @@ async function tryKey(apiKey, body) {
 
 export async function askGemini(question, profileData, history = []) {
   if (API_KEYS.length === 0) {
-    return "API key not configured. Set VITE_GEMINI_API_KEY in your environment.";
+    return "Sorry, Sodd is taking a nap right now. Ask Siddhant to wake me up by adding the API key!";
   }
 
   const body = buildRequestBody(question, profileData, history);
