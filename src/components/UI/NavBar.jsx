@@ -3,7 +3,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import { FiExternalLink } from "react-icons/fi";
 import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
 
-export const Navbar = ({ isDark, toggleDark }) => {
+export const Navbar = ({ isDark, toggleDark, activeSection }) => {
   const navLinks = [
     { label: "Experience", href: "#experience" },
     { label: "Projects", href: "#projects" },
@@ -18,16 +18,26 @@ export const Navbar = ({ isDark, toggleDark }) => {
         Siddhant<span className="text-gray-400">Kadam</span>
       </a>
 
-      <div className="hidden md:flex items-center gap-6">
-        {navLinks.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            className="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
-          >
-            {link.label}
-          </a>
-        ))}
+      <div className="hidden md:flex items-center gap-1">
+        {navLinks.map((link) => {
+          const isActive = activeSection === link.href.slice(1);
+          return (
+            <a
+              key={link.label}
+              href={link.href}
+              className={`relative px-3 py-1.5 text-sm font-medium transition-colors rounded-lg ${
+                isActive
+                  ? "text-black dark:text-white bg-gray-100 dark:bg-white/10"
+                  : "text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5"
+              }`}
+            >
+              {link.label}
+              {isActive && (
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-black dark:bg-white rounded-full" />
+              )}
+            </a>
+          );
+        })}
         <a
           href="/resume.pdf"
           target="_blank"

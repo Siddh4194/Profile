@@ -6,6 +6,10 @@ import { Projects } from "../components/UI/Projects";
 import { Skills } from "../components/UI/Skills";
 import { Education } from "../components/UI/Education";
 import { Footer } from "../components/UI/Footer";
+import { Principles } from "../components/UI/Principles";
+import { BlogSection } from "../components/UI/BlogSection";
+import { ScrollToTop } from "../components/UI/ScrollToTop";
+import { CursorFollower } from "../components/UI/CursorFollower";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { FiArrowDown } from "react-icons/fi";
@@ -98,12 +102,14 @@ const TestimonialsSection = () => {
     {
       name: "Satyan Rajmani",
       role: "Chair Person, Crt Bionics Australia",
+      link: "https://www.linkedin.com/in/satyan-crt-program-7b940236/",
       feedback:
         "Siddhant has a rare ability to deeply understand system internals and translate that into scalable backend architecture. Working with him improved our deployment cycle and backend efficiency significantly.",
     },
     {
       name: "Sushant Kant",
       role: "CEO, Work Technologies",
+      link: "https://www.linkedin.com/in/sushant-kant-8b8b8b8b/",
       feedback:
         "Reliable, fast, and always thinking ahead. Siddhant's approach to problem solving and clean code made a real impact on our platform performance and stability.",
     },
@@ -139,7 +145,13 @@ const TestimonialsSection = () => {
               &ldquo;{t.feedback}&rdquo;
             </p>
             <div>
-              <p className="text-sm font-bold text-black dark:text-white">{t.name}</p>
+              <a
+                href={t.link}
+                target="_blank"
+                className="text-sm font-bold text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+              >
+                {t.name}
+              </a>
               <p className="text-xs text-gray-400 dark:text-gray-500">{t.role}</p>
             </div>
           </motion.div>
@@ -260,6 +272,14 @@ const HeroSection = () => (
   </section>
 );
 
+const SECTIONS = [
+  "experience",
+  "projects",
+  "skills",
+  "education",
+  "contact",
+];
+
 const Home = () => {
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== "undefined") {
@@ -269,6 +289,8 @@ const Home = () => {
     }
     return false;
   });
+
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const root = document.documentElement;
@@ -281,27 +303,49 @@ const Home = () => {
     }
   }, [isDark]);
 
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollPos = window.scrollY + 120;
+      let current = "";
+      SECTIONS.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollPos) {
+          current = id;
+        }
+      });
+      setActiveSection(current);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const toggleDark = () => setIsDark((prev) => !prev);
 
   return (
     <div className="bg-white dark:bg-[#0a0a0a] transition-colors duration-300">
       <div className="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-900 px-6 py-4">
-        <Navbar isDark={isDark} toggleDark={toggleDark} />
+        <Navbar isDark={isDark} toggleDark={toggleDark} activeSection={activeSection} />
       </div>
 
       <main className="pt-20">
         <HeroSection />
+        <Principles />
         <Experience />
         <Projects />
         <Skills />
         <SummarySection />
         <BeyondCodeSection />
         <TestimonialsSection />
+        <BlogSection />
         <Education />
         <ContactSection />
       </main>
 
       <Footer />
+      <ScrollToTop />
+      <CursorFollower />
     </div>
   );
 };

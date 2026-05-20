@@ -1,5 +1,5 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { FiExternalLink, FiMail } from "react-icons/fi";
+import { FiMail } from "react-icons/fi";
 
 export const Footer = () => {
   const links = [
@@ -17,11 +17,6 @@ export const Footer = () => {
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/siddhant-kadam/",
       icon: FaLinkedin,
-    },
-    {
-      label: "Portfolio",
-      href: "https://siddh-portfolio.vercel.app",
-      icon: FiExternalLink,
     },
   ];
 
