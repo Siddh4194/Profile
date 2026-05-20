@@ -96,6 +96,16 @@ const AIChat = () => {
   }, []);
 
   useEffect(() => {
+    const onOpen = () => setOpen(true);
+    window.addEventListener("open-sodd", onOpen);
+    return () => window.removeEventListener("open-sodd", onOpen);
+  }, []);
+
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent("sodd-state", { detail: { open } }));
+  }, [open]);
+
+  useEffect(() => {
     if (open) {
       scrollToBottom();
       inputRef.current?.focus();
