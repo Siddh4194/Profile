@@ -47,7 +47,7 @@ export const Navbar = ({ isDark, toggleDark, activeSection }) => {
           Case Studies
         </Link>
         <a
-          href="/resume.pdf"
+          href={`${import.meta.env.BASE_URL}resume.pdf`}
           target="_blank"
           className="flex items-center gap-1 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
         >
