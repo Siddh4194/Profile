@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiMessageSquare, FiX, FiSend, FiExternalLink } from "react-icons/fi";
+import { FiMessageSquare, FiX, FiSend, FiExternalLink, FiMic } from "react-icons/fi";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useNavigate } from "react-router-dom";
@@ -13,6 +13,9 @@ const WELCOME_MESSAGE = {
 };
 
 const ACTION_REGEX = /--action:([A-Z_]+):(.+?)--/g;
+
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const supportsVoice = !!SpeechRecognition;
 
 function parseAndClean(text) {
   const actions = [];
@@ -83,6 +86,8 @@ const AIChat = () => {
   const [messages, setMessages] = useState([WELCOME_MESSAGE]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [listening, setListening] = useState(false);
+  const recognitionRef = useRef(null);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -130,6 +135,32 @@ const AIChat = () => {
       handleSend();
     }
   };
+
+  const startVoice = useCallback(() => {
+    if (!supportsVoice || listening) return;
+    const recognition = new SpeechRecognition();
+    recognition.lang = "en-US";
+    recognition.interimResults = false;
+    recognition.continuous = false;
+
+    recognition.onresult = (e) => {
+      const transcript = e.results[0][0].transcript;
+      setInput(transcript);
+      setListening(false);
+    };
+
+    recognition.onerror = () => setListening(false);
+    recognition.onend = () => setListening(false);
+
+    recognitionRef.current = recognition;
+    recognition.start();
+    setListening(true);
+  }, [listening]);
+
+  const stopVoice = useCallback(() => {
+    recognitionRef.current?.stop();
+    setListening(false);
+  }, []);
 
   return (
     <>
@@ -205,6 +236,19 @@ const AIChat = () => {
                   disabled={loading}
                   className="flex-1 text-sm bg-gray-100 dark:bg-white/10 text-black dark:text-white placeholder-gray-400 dark:placeholder-gray-500 px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/20 disabled:opacity-50 transition-colors"
                 />
+                {supportsVoice && (
+                  <button
+                    onClick={listening ? stopVoice : startVoice}
+                    disabled={loading}
+                    className={`p-2.5 rounded-xl transition-all shrink-0 ${
+                      listening
+                        ? "bg-red-500 text-white animate-pulse"
+                        : "bg-gray-100 dark:bg-white/10 text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white"
+                    }`}
+                  >
+                    <FiMic size={16} />
+                  </button>
+                )}
                 <button
                   onClick={handleSend}
                   disabled={loading || !input.trim()}
