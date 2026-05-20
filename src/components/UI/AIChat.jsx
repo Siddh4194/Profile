@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiMessageSquare, FiX, FiSend, FiExternalLink } from "react-icons/fi";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { useNavigate } from "react-router-dom";
 import { profileData } from "../../data/profileData";
 import { askGemini } from "../../services/aiService";
 
@@ -10,6 +11,39 @@ const WELCOME_MESSAGE = {
   role: "bot",
   text: "Hey, I'm **Sodd** — Siddhant's personal assistant. Ask me anything about him!"
 };
+
+const ACTION_REGEX = /--action:([A-Z_]+):(.+?)--/g;
+
+function parseAndClean(text) {
+  const actions = [];
+  let match;
+  while ((match = ACTION_REGEX.exec(text)) !== null) {
+    actions.push({ command: match[1], value: match[2] });
+  }
+  return { clean: text.replace(ACTION_REGEX, "").trim(), actions };
+}
+
+function executeAction({ command, value }) {
+  switch (command) {
+    case "SCROLL": {
+      const el = document.getElementById(value);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+      break;
+    }
+    case "THEME": {
+      const root = document.documentElement;
+      const isDark = root.classList.contains("dark");
+      if (isDark) {
+        root.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+      } else {
+        root.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+      }
+      break;
+    }
+  }
+}
 
 const BotMessage = ({ text }) => (
   <ReactMarkdown
@@ -44,6 +78,7 @@ const BotMessage = ({ text }) => (
 );
 
 const AIChat = () => {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([WELCOME_MESSAGE]);
   const [input, setInput] = useState("");
@@ -76,8 +111,17 @@ const AIChat = () => {
       messages.filter((m) => m !== WELCOME_MESSAGE)
     );
 
-    setMessages((prev) => [...prev, { role: "bot", text: response }]);
+    const { clean, actions } = parseAndClean(response);
+    setMessages((prev) => [...prev, { role: "bot", text: clean }]);
     setLoading(false);
+
+    actions.forEach((action) => {
+      if (action.command === "NAVIGATE") {
+        navigate(action.value);
+      } else {
+        setTimeout(() => executeAction(action), 300);
+      }
+    });
   };
 
   const handleKeyDown = (e) => {
