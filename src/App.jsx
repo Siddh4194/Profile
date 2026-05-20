@@ -5,6 +5,7 @@ import CaseStudyLandslide from "./Pages/CaseStudyLandslide";
 import CaseStudy3rdStep from "./Pages/CaseStudy3rdStep";
 import CaseStudyIndex from "./Pages/CaseStudyIndex";
 import { CursorFollower } from "./components/UI/CursorFollower";
+import { AIChat } from "./components/UI/AIChat";
 
 function App() {
   const basename = import.meta.env.PROD ? "/Profile" : "/";
@@ -12,6 +13,7 @@ function App() {
     <HelmetProvider>
       <BrowserRouter basename={basename}>
         <CursorFollower />
+        <AIChat />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/case-study" element={<CaseStudyIndex />} />

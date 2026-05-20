@@ -182,7 +182,7 @@ const ContactSection = () => (
           <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1">
             Careers
           </p>
-          <p className="text-sm font-medium text-black dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
+          <p className="text-sm font-medium text-black dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors break-all">
             siddhantkadam.career@gmail.com
           </p>
         </a>
