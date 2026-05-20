@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FiBookOpen, FiEdit3 } from "react-icons/fi";
+import { FiBookOpen, FiEdit3, FiLock } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 export const BlogSection = () => {
@@ -20,6 +20,30 @@ export const BlogSection = () => {
       </motion.div>
 
       <div className="space-y-4">
+        <Link
+          to="/case-study/3rd-step-verification"
+          className="group block border border-gray-200 dark:border-gray-800 rounded-2xl p-6 bg-white dark:bg-[#111] hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-black/20 transition-all duration-300"
+        >
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full border text-purple-700 dark:text-purple-300 border-purple-400 dark:border-purple-600 bg-purple-50 dark:bg-purple-900/20">
+              Case Study
+            </span>
+            <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full border text-blue-700 dark:text-blue-400 border-blue-300 dark:border-blue-600 bg-blue-50 dark:bg-blue-900/20">
+              Cryptography
+            </span>
+          </div>
+          <h3 className="text-base font-bold text-black dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
+            3rd Step Verification
+          </h3>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+            Chained cryptographic hashes that tie every social media post to a verified user — preventing anonymous abuse before it happens.
+          </p>
+          <span className="inline-flex items-center gap-1 text-sm font-medium text-gray-400 dark:text-gray-500 group-hover:text-black dark:group-hover:text-white transition-colors mt-3">
+            <FiBookOpen size={14} />
+            Read full case study
+          </span>
+        </Link>
+
         <Link
           to="/case-study/landslide-detection"
           className="group block border border-gray-200 dark:border-gray-800 rounded-2xl p-6 bg-white dark:bg-[#111] hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-black/20 transition-all duration-300"

@@ -331,9 +331,9 @@ const Home = () => {
         <html lang="en" />
         <title>Siddhant Kadam · Full-Stack &amp; Platform Infrastructure Engineer</title>
         <meta name="description" content="Siddhant Kadam — Full-Stack Engineer specializing in platform infrastructure, distributed systems, Go, Node.js, and IoT. Infrastructure for scale." />
-        <link rel="canonical" href="https://siddh-portfolio.vercel.app/" />
+        <link rel="canonical" href="https://Siddh4194.github.io/Profile/" />
 
-        <meta property="og:url" content="https://siddh-portfolio.vercel.app/" />
+        <meta property="og:url" content="https://Siddh4194.github.io/Profile/" />
         <meta property="og:title" content="Siddhant Kadam · Full-Stack &amp; Platform Infrastructure Engineer" />
         <meta property="og:description" content="Building infrastructure for scale. Go/Node.js, GCP, Redis, MQTT, IoT. 1st Prize — Landslide Early Detection System." />
         <meta property="og:type" content="website" />
@@ -347,7 +347,7 @@ const Home = () => {
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Siddhant Kadam",
-            "url": "https://siddh-portfolio.vercel.app/",
+            "url": "https://Siddh4194.github.io/Profile/",
             "email": "siddh4194@gmail.com",
             "jobTitle": "Full-Stack & Platform Infrastructure Engineer",
             "knowsAbout": ["Go", "Node.js", "GCP", "Redis", "MQTT", "IoT", "Distributed Systems", "Kubernetes"],

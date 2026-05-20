@@ -31,10 +31,10 @@ const CaseStudyLandslide = () => {
       <Helmet>
         <title>Landslide Early Detection System — Case Study</title>
         <meta name="description" content="How we built a simple copper-rod-based early warning system for landslide-prone communities. 1st Prize project." />
-        <link rel="canonical" href="https://siddh-portfolio.vercel.app/case-study/landslide-detection" />
+        <link rel="canonical" href="https://Siddh4194.github.io/Profile/case-study/landslide-detection" />
         <meta property="og:title" content="Landslide Early Detection System — Case Study" />
         <meta property="og:description" content="Copper rods, wire displacement, and an alarm — a simple early warning system for landslide-prone communities." />
-        <meta property="og:url" content="https://siddh-portfolio.vercel.app/case-study/landslide-detection" />
+        <meta property="og:url" content="https://Siddh4194.github.io/Profile/case-study/landslide-detection" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

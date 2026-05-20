@@ -12,9 +12,10 @@ const projects = [
   },
   {
     title: "3rd Step Verification",
-    desc: "Inspired by social media posts escalating into real-world harm (Satara incident, 2023), built a blockchain-based verification mechanism using cryptographic hash keys to add a secured verification layer for social media workflows.",
-    stack: ["Blockchain", "Cryptography", "Authentication"],
+    desc: "Inspired by social media posts escalating into real-world harm (Satara incident, 2023), built a cryptographic hash-chain verification system. Every post requires a unique hash emailed to the user — eliminating anonymous abuse.",
+    stack: ["Cryptography", "Hash Chaining", "Authentication"],
     url: "https://github.com/Siddh4194/3rdStepVerification",
+    caseStudyLink: "/case-study/3rd-step-verification",
     articleUrl: "https://www.thehindu.com/news/cities/mumbai/at-least-one-dead-10-injured-internet-suspended-in-maharashtras-satara-over-social-media-post/article67295790.ece",
     status: "Completed",
   },

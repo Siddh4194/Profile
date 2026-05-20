@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://siddh-portfolio.vercel.app/sitemap.xml
+Sitemap: https://Siddh4194.github.io/Profile/sitemap.xml

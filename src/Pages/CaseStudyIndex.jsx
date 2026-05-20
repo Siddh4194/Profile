@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { FiArrowLeft, FiBookOpen, FiAward, FiCpu, FiBarChart2 } from "react-icons/fi";
+import { FiArrowLeft, FiBookOpen, FiAward, FiCpu, FiBarChart2, FiShield } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 const caseStudies = [
@@ -14,6 +14,15 @@ const caseStudies = [
     desc: "A simple yet effective early warning system using copper rods in the soil that detect ground movement through wire displacement — triggering alarms when the earth shifts. Inspired by the 2021 Taliye tragedy.",
     highlights: ["Copper rod soil sensing", "Wire displacement detection", "Mechanical trigger mechanism", "1st Prize project competition"],
   },
+  {
+    slug: "3rd-step-verification",
+    title: "3rd Step Verification",
+    subtitle: "Cryptographic hash-chain authentication for social media accountability",
+    tags: ["Cryptography", "Authentication", "Blockchain"],
+    icon: FiShield,
+    desc: "A 3-step verification system using chained cryptographic hashes to eliminate anonymous posting. Every post is tied to a verified hash emailed to the user — making harmful posts traceable and accountable.",
+    highlights: ["Cryptographic hash chaining", "Email-based post verification", "Prevents anonymous abuse", "Tamper-evident post history"],
+  },
 ];
 
 const CaseStudyIndex = () => {
@@ -22,10 +31,10 @@ const CaseStudyIndex = () => {
       <Helmet>
         <title>Case Studies — Siddhant Kadam</title>
         <meta name="description" content="Deep dives into projects I've built — from problem to solution." />
-        <link rel="canonical" href="https://siddh-portfolio.vercel.app/case-study" />
+        <link rel="canonical" href="https://Siddh4194.github.io/Profile/case-study" />
         <meta property="og:title" content="Case Studies — Siddhant Kadam" />
         <meta property="og:description" content="Deep dives into projects I've built — from problem to solution." />
-        <meta property="og:url" content="https://siddh-portfolio.vercel.app/case-study" />
+        <meta property="og:url" content="https://Siddh4194.github.io/Profile/case-study" />
       </Helmet>
       {/* Top bar */}
       <div className="sticky top-0 z-50 bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-900 px-6 py-4">
