@@ -53,7 +53,7 @@ const projects = [
 
 export const Projects = () => {
   return (
-    <section id="projects" className="w-full max-w-4xl mx-auto px-6 py-16">
+    <section id="projects" className="w-full max-w-4xl mx-auto px-6 py-16 scroll-mt-[72px]">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

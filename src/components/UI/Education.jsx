@@ -3,7 +3,7 @@ import { FiBookOpen } from "react-icons/fi";
 
 export const Education = () => {
   return (
-    <section id="education" className="w-full max-w-4xl mx-auto px-6 py-16">
+    <section id="education" className="w-full max-w-4xl mx-auto px-6 py-16 scroll-mt-[72px]">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
