@@ -41,6 +41,17 @@ const CaseStudy3rdStep = () => {
             }
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://Siddh4194.github.io/Profile/" },
+              { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://Siddh4194.github.io/Profile/case-study" },
+              { "@type": "ListItem", "position": 3, "name": "3rd Step Verification" }
+            ]
+          })}
+        </script>
       </Helmet>
 
       {/* Top bar */}
