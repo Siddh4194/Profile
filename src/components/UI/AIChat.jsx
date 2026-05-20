@@ -5,7 +5,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useNavigate } from "react-router-dom";
 import { profileData } from "../../data/profileData";
-import { askGemini } from "../../services/aiService";
+import { askSodd } from "../../services/aiService";
 
 const WELCOME_MESSAGE = {
   role: "bot",
@@ -120,7 +120,7 @@ const AIChat = () => {
     setMessages((prev) => [...prev, { role: "user", text }]);
     setLoading(true);
 
-    const response = await askGemini(
+    const response = await askSodd(
       text,
       profileData,
       messages.filter((m) => m !== WELCOME_MESSAGE)

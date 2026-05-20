@@ -4,7 +4,7 @@ const API_KEYS = [
   import.meta.env.VITE_GEMINI_API_KEY_3,
 ].filter(Boolean);
 
-const MODEL = "gemini-2.5-flash";
+const MODEL = "gemini-3.1-flash-lite";
 
 const buildSystemPrompt = (profileData) =>
   `Your name is Sodd. You are Siddhant Kadam's personal AI assistant. You speak as if you personally know him and are representing him. Your ONLY purpose is to answer questions about Siddhant Kadam based on the profile information provided below.
@@ -58,11 +58,12 @@ When the user asks you to show a section, switch theme, or go to a page, respond
 Here is the profile information about Siddhant Kadam:
 ${JSON.stringify(profileData, null, 2)}`;
 
-const MODEL_ACK = "I understand. I'm Sodd, Siddhant's personal assistant. I will only answer questions about Siddhant Kadam based on the provided profile data.";
+async function tryKey(apiKey, question, profileData, history) {
+  const systemPrompt = buildSystemPrompt(profileData);
+  const MODEL_ACK = "I understand. I'm Sodd, Siddhant's personal assistant.";
 
-function buildRequestBody(question, profileData, history) {
   const contents = [
-    { role: "user", parts: [{ text: buildSystemPrompt(profileData) }] },
+    { role: "user", parts: [{ text: systemPrompt }] },
     { role: "model", parts: [{ text: MODEL_ACK }] },
     ...history.map((msg) => ({
       role: msg.role === "user" ? "user" : "model",
@@ -71,21 +72,14 @@ function buildRequestBody(question, profileData, history) {
     { role: "user", parts: [{ text: question }] },
   ];
 
-  return {
-    contents,
-    generationConfig: {
-      temperature: 0.7,
-      maxOutputTokens: 500,
-    },
-  };
-}
-
-async function tryKey(apiKey, body) {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${apiKey}`;
   const res = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
+    body: JSON.stringify({
+      contents,
+      generationConfig: { temperature: 0.7, maxOutputTokens: 500 },
+    }),
   });
 
   if (res.status === 429) return { status: 429 };
@@ -98,20 +92,18 @@ async function tryKey(apiKey, body) {
   const data = await res.json();
   return {
     status: 200,
-    text: data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || "No response.",
+    text:
+      data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || "No response.",
   };
 }
 
-export async function askGemini(question, profileData, history = []) {
+export async function askSodd(question, profileData, history = []) {
   if (API_KEYS.length === 0) {
     return "Sorry, Sodd is taking a nap right now. Ask Siddhant to wake me up by adding the API key!";
   }
 
-  const body = buildRequestBody(question, profileData, history);
-
   for (let i = 0; i < API_KEYS.length; i++) {
-    const result = await tryKey(API_KEYS[i], body);
-
+    const result = await tryKey(API_KEYS[i], question, profileData, history);
     if (result.status === 200) return result.text;
     if (result.status === 429 && i < API_KEYS.length - 1) continue;
   }
