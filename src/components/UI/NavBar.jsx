@@ -1,7 +1,8 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
-import { FiExternalLink } from "react-icons/fi";
+import { FiExternalLink, FiBookOpen } from "react-icons/fi";
 import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 export const Navbar = ({ isDark, toggleDark, activeSection }) => {
   const navLinks = [
@@ -19,7 +20,7 @@ export const Navbar = ({ isDark, toggleDark, activeSection }) => {
       </a>
 
       <div className="hidden md:flex items-center gap-1">
-        {navLinks.map((link) => {
+          {navLinks.map((link) => {
           const isActive = activeSection === link.href.slice(1);
           return (
             <a
@@ -38,6 +39,13 @@ export const Navbar = ({ isDark, toggleDark, activeSection }) => {
             </a>
           );
         })}
+        <Link
+          to="/case-study"
+          className="relative px-3 py-1.5 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5 transition-colors rounded-lg flex items-center gap-1.5"
+        >
+          <FiBookOpen size={13} />
+          Case Studies
+        </Link>
         <a
           href="/resume.pdf"
           target="_blank"

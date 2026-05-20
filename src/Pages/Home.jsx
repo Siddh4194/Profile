@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Navbar } from "../components/UI/NavBar";
 import { Experience } from "../components/UI/Experienve";
@@ -9,10 +10,10 @@ import { Footer } from "../components/UI/Footer";
 import { Principles } from "../components/UI/Principles";
 import { BlogSection } from "../components/UI/BlogSection";
 import { ScrollToTop } from "../components/UI/ScrollToTop";
-import { CursorFollower } from "../components/UI/CursorFollower";
+
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
-import { FiArrowDown } from "react-icons/fi";
+import { FiArrowDown, FiExternalLink } from "react-icons/fi";
 
 const SocialLink = ({ href, icon: Icon, label }) => (
   <a
@@ -109,7 +110,7 @@ const TestimonialsSection = () => {
     {
       name: "Sushant Kant",
       role: "CEO, Work Technologies",
-      link: "https://www.linkedin.com/in/sushant-kant-8b8b8b8b/",
+      link: "https://www.linkedin.com/in/sushant-k-886b8543/",
       feedback:
         "Reliable, fast, and always thinking ahead. Siddhant's approach to problem solving and clean code made a real impact on our platform performance and stability.",
     },
@@ -139,7 +140,7 @@ const TestimonialsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.4 }}
-            className="border border-gray-200 dark:border-gray-800 rounded-2xl p-6 bg-white dark:bg-[#111]"
+            className="border border-gray-200 dark:border-gray-800 rounded-2xl p-6 bg-white dark:bg-[#111] hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-black/20 transition-all duration-300"
           >
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4 italic">
               &ldquo;{t.feedback}&rdquo;
@@ -148,9 +149,10 @@ const TestimonialsSection = () => {
               <a
                 href={t.link}
                 target="_blank"
-                className="text-sm font-bold text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm font-bold text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
               >
                 {t.name}
+                <FiExternalLink size={13} className="text-gray-400 dark:text-gray-500" />
               </a>
               <p className="text-xs text-gray-400 dark:text-gray-500">{t.role}</p>
             </div>
@@ -325,6 +327,37 @@ const Home = () => {
 
   return (
     <div className="bg-white dark:bg-[#0a0a0a] transition-colors duration-300">
+      <Helmet prioritizeSeoTags>
+        <html lang="en" />
+        <title>Siddhant Kadam · Full-Stack &amp; Platform Infrastructure Engineer</title>
+        <meta name="description" content="Siddhant Kadam — Full-Stack Engineer specializing in platform infrastructure, distributed systems, Go, Node.js, and IoT. Infrastructure for scale." />
+        <link rel="canonical" href="https://siddh-portfolio.vercel.app/" />
+
+        <meta property="og:url" content="https://siddh-portfolio.vercel.app/" />
+        <meta property="og:title" content="Siddhant Kadam · Full-Stack &amp; Platform Infrastructure Engineer" />
+        <meta property="og:description" content="Building infrastructure for scale. Go/Node.js, GCP, Redis, MQTT, IoT. 1st Prize — Landslide Early Detection System." />
+        <meta property="og:type" content="website" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Siddhant Kadam · Full-Stack &amp; Platform Infrastructure Engineer" />
+        <meta name="twitter:description" content="Building infrastructure for scale. Go/Node.js, GCP, Redis, MQTT, IoT." />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Siddhant Kadam",
+            "url": "https://siddh-portfolio.vercel.app/",
+            "email": "siddh4194@gmail.com",
+            "jobTitle": "Full-Stack & Platform Infrastructure Engineer",
+            "knowsAbout": ["Go", "Node.js", "GCP", "Redis", "MQTT", "IoT", "Distributed Systems", "Kubernetes"],
+            "sameAs": [
+              "https://github.com/Siddh4194",
+              "https://www.linkedin.com/in/siddhant-kadam/"
+            ]
+          })}
+        </script>
+      </Helmet>
       <div className="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-900 px-6 py-4">
         <Navbar isDark={isDark} toggleDark={toggleDark} activeSection={activeSection} />
       </div>
@@ -345,7 +378,6 @@ const Home = () => {
 
       <Footer />
       <ScrollToTop />
-      <CursorFollower />
     </div>
   );
 };

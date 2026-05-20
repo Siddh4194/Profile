@@ -9,6 +9,26 @@ import {
 } from "react-icons/hi";
 import { BsHddNetwork } from "react-icons/bs";
 
+const linkify = (text) => {
+  const parts = text.split(/(https?:\/\/[^\s)]+)/g);
+  return parts.map((part, i) => {
+    if (/^https?:\/\//.test(part)) {
+      return (
+        <a
+          key={i}
+          href={part}
+          target="_blank"
+          className="inline-flex items-center gap-0.5 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white underline underline-offset-2 transition-colors"
+        >
+          {part.replace(/^https?:\/\//, "")}
+          <FiExternalLink size={11} />
+        </a>
+      );
+    }
+    return <span key={i}>{part}</span>;
+  });
+};
+
 const experienceData = [
   {
     company: "Krishworks Technology and Research Labs Pvt. Ltd",
@@ -63,9 +83,10 @@ const experienceData = [
         label: "Client Projects",
         Icon: HiOutlineCube,
         items: [
-          "Architected and delivered 2+ production-ready client applications using React and Node.js.",
+          "Architected and delivered multiple production-ready client websites and applications using React, Node.js, and TailwindCSS.",
+          "Work Technologies (https://worktechnologies.co.in) — company website with responsive UI, built from scratch using React + TailwindCSS.",
+          "Ctop India (https://ctopindia.com) — client website with modern design and optimized performance.",
           "CRT Bionics — admin dashboard + payment integration, boosting performance and UX.",
-          "Work Technologies — responsive UI using TailwindCSS and React.",
         ],
       },
     ],
@@ -130,7 +151,7 @@ const ExpandableCard = ({ entry }) => {
                   <div className="px-4 pb-4 space-y-2">
                     {cat.items.map((item, j) => (
                       <p key={j} className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed pl-6 border-l-2 border-gray-200 dark:border-gray-700">
-                        {item}
+                        {linkify(item)}
                       </p>
                     ))}
                   </div>

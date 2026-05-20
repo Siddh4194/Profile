@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { FiEdit3 } from "react-icons/fi";
+import { FiBookOpen, FiEdit3 } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 export const BlogSection = () => {
   return (
@@ -18,22 +19,48 @@ export const BlogSection = () => {
         </p>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.1, duration: 0.4 }}
-        className="border border-dashed border-gray-300 dark:border-gray-700 rounded-2xl p-10 bg-gray-50 dark:bg-white/[0.02] text-center max-w-lg"
-      >
-        <FiEdit3 size={32} className="mx-auto text-gray-300 dark:text-gray-600 mb-3" />
-        <p className="text-sm text-gray-400 dark:text-gray-500 font-medium">
-          Articles coming soon
-        </p>
-        <p className="text-xs text-gray-400 dark:text-gray-600 mt-1">
-          Sharing insights on platform infrastructure, distributed systems,
-          and building for scale.
-        </p>
-      </motion.div>
+      <div className="space-y-4">
+        <Link
+          to="/case-study/landslide-detection"
+          className="group block border border-gray-200 dark:border-gray-800 rounded-2xl p-6 bg-white dark:bg-[#111] hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-black/20 transition-all duration-300"
+        >
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full border text-amber-700 dark:text-amber-300 border-amber-400 dark:border-amber-600 bg-amber-50 dark:bg-amber-900/20">
+              Case Study
+            </span>
+            <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full border text-green-700 dark:text-green-400 border-green-300 dark:border-green-600 bg-green-50 dark:bg-green-900/20">
+              IoT
+            </span>
+          </div>
+          <h3 className="text-base font-bold text-black dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
+            Landslide Early Detection System
+          </h3>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+            Copper rods in the soil, wire displacement triggers, and an alarm — how we built a simple early warning system for landslide-prone communities.
+          </p>
+          <span className="inline-flex items-center gap-1 text-sm font-medium text-gray-400 dark:text-gray-500 group-hover:text-black dark:group-hover:text-white transition-colors mt-3">
+            <FiBookOpen size={14} />
+            Read full case study
+          </span>
+        </Link>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1, duration: 0.4 }}
+          className="border border-dashed border-gray-300 dark:border-gray-700 rounded-2xl p-8 bg-gray-50 dark:bg-white/[0.02] text-center max-w-lg"
+        >
+          <FiEdit3 size={28} className="mx-auto text-gray-300 dark:text-gray-600 mb-3" />
+          <p className="text-sm text-gray-400 dark:text-gray-500 font-medium">
+            More articles coming soon
+          </p>
+          <p className="text-xs text-gray-400 dark:text-gray-600 mt-1">
+            Sharing insights on platform infrastructure, distributed systems,
+            and building for scale.
+          </p>
+        </motion.div>
+      </div>
     </section>
   );
 };

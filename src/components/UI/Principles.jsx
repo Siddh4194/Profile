@@ -6,19 +6,36 @@ const principles = [
     icon: HiOutlineLightningBolt,
     title: "Optimize First",
     description:
-      "Redis caching layers, InfluxDB migration for telemetry, tiered multilingual storage. Performance is the architecture, not a retrofit.",
+      "Redis caching that cut Firebase read costs by 80%. InfluxDB migration that dropped API latency by ~500ms. Multiplayer server optimizations that reduced CPU by 35% while increasing concurrency by 48%. Performance isn't a retrofit — it's the architecture.",
+    examples: [
+      "Redis layer → 80% lower Firebase costs",
+      "InfluxDB logging → 500ms faster API responses",
+      "Concurrency fix → 35% less CPU, 48% more throughput",
+      "IndexedDB caching → 1.4s faster loads, 80% less egress",
+    ],
   },
   {
     icon: HiOutlineShieldCheck,
     title: "Secure by Default",
     description:
-      "Cloud Armor DDoS protection, Secret Manager credential rotation, IAM policies, GPG-signed commits across every repository.",
+      "GPG-signed commits required org-wide. Cloud Armor DDoS protection, Secret Manager credential rotation, and IAM policies deployed after identifying code injection incidents. Branch protection, review gates, and CI checks on every repo. Security gates are in the pipeline before the first PR merges.",
+    examples: [
+      "GPG-signed commits across all repos",
+      "Cloud Armor + Secret Manager + IAM",
+      "Branch protection + review gates + CI checks",
+    ],
   },
   {
     icon: HiOutlineCube,
     title: "Own It End-to-End",
     description:
-      "React frontend to Go backend to deployment scripts. CI/CD, monitoring, team standards, production reliability — I own the whole path.",
+      "OTA update system for Raspberry Pi fleets: React frontend, Go backend, deployment scripts — all delivered end-to-end. Landslide detection system: from identifying the problem and building the prototype to testing and winning 1st Prize. Client websites from the first call to production deploy. I don't hand off — I close the loop.",
+    examples: [
+      "OTA system: React → Go → deployment → fleet",
+      "Landslide detection: problem → prototype → 1st Prize",
+      "SaaS dashboard: TypeScript + Next.js, ahead of schedule",
+      "3 client websites delivered end-to-end in 3 months",
+    ],
   },
 ];
 
@@ -53,9 +70,17 @@ export const Principles = () => {
             <h3 className="text-base font-bold text-black dark:text-white mb-1.5">
               {p.title}
             </h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-3">
               {p.description}
             </p>
+            <ul className="space-y-1">
+              {p.examples.map((ex, j) => (
+                <li key={j} className="text-xs text-gray-400 dark:text-gray-500 flex items-start gap-1.5">
+                  <span className="mt-1 w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600 shrink-0" />
+                  {ex}
+                </li>
+              ))}
+            </ul>
           </motion.div>
         ))}
       </div>
