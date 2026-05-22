@@ -5,13 +5,13 @@
 Go/Node.js engineer specializing in distributed systems, GCP, Redis, MQTT, and IoT. Based in Maharashtra, India. 2 years of experience delivering measurable impact — 80% database cost reduction, 500ms API latency improvement, secure OTA infrastructure for IoT fleet.
 
 ## Pages
-- [Portfolio Home](https://Siddh4194.github.io/Profile/) — Full portfolio with experience, projects, skills, testimonials, case studies
-- [Case Studies Index](https://Siddh4194.github.io/Profile/case-study) — All project deep dives
-- [Landslide Early Detection System](https://Siddh4194.github.io/Profile/case-study/landslide-detection) — Copper-rod-based early warning system for landslide-prone communities. 1st Prize project competition.
-- [3rd Step Verification](https://Siddh4194.github.io/Profile/case-study/3rd-step-verification) — Cryptographic hash-chain verification system for social media accountability. Eliminates anonymous abuse.
+- [Portfolio Home](https://siddh4194.github.io/) — Full portfolio with experience, projects, skills, testimonials, case studies
+- [Case Studies Index](https://siddh4194.github.io/case-study) — All project deep dives
+- [Landslide Early Detection System](https://siddh4194.github.io/case-study/landslide-detection) — Copper-rod-based early warning system for landslide-prone communities. 1st Prize project competition.
+- [3rd Step Verification](https://siddh4194.github.io/case-study/3rd-step-verification) — Cryptographic hash-chain verification system for social media accountability. Eliminates anonymous abuse.
 
 ## Social
-- [GitHub](https://github.com/Siddh4194)
+- [GitHub](https://github.com/siddh4194)
 - [LinkedIn](https://www.linkedin.com/in/siddhant-kadam/)
 - Email: siddh4194@gmail.com
 
