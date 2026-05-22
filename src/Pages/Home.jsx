@@ -240,7 +240,7 @@ const HeroSection = () => (
         transition={{ delay: 0.4, duration: 0.6 }}
       >
         <SocialLink href="mailto:siddh4194@gmail.com" icon={HiOutlineMail} label="Email" />
-        <SocialLink href="https://github.com/Siddh4194" icon={FaGithub} label="GitHub" />
+        <SocialLink href="https://github.com/siddh4194" icon={FaGithub} label="GitHub" />
         <SocialLink href="https://www.linkedin.com/in/siddhant-kadam/" icon={FaLinkedin} label="LinkedIn" />
       </motion.div>
 
@@ -319,30 +319,30 @@ const Home = () => {
         <html lang="en" />
         <title>Siddhant Kadam · Full-Stack &amp; Platform Infrastructure Engineer</title>
         <meta name="description" content="Siddhant Kadam — Full-Stack Engineer specializing in platform infrastructure, distributed systems, Go, Node.js, and IoT. Infrastructure for scale." />
-        <link rel="canonical" href="https://Siddh4194.github.io/Profile/" />
+        <link rel="canonical" href="https://siddh4194.github.io/" />
 
-        <meta property="og:url" content="https://Siddh4194.github.io/Profile/" />
-        <meta property="og:image" content="https://Siddh4194.github.io/Profile/og-image.svg" />
+        <meta property="og:url" content="https://siddh4194.github.io/" />
+        <meta property="og:image" content="https://siddh4194.github.io/og-image.svg" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Siddhant Kadam" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Siddhant Kadam · Full-Stack &amp; Platform Infrastructure Engineer" />
         <meta name="twitter:description" content="Building infrastructure for scale. Go/Node.js, GCP, Redis, MQTT, IoT." />
-        <meta name="twitter:image" content="https://Siddh4194.github.io/Profile/og-image.svg" />
+        <meta name="twitter:image" content="https://siddh4194.github.io/og-image.svg" />
 
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Siddhant Kadam",
-            "url": "https://Siddh4194.github.io/Profile/",
+            "url": "https://siddh4194.github.io/",
             "email": "siddh4194@gmail.com",
-            "image": "https://Siddh4194.github.io/Profile/og-image.svg",
+            "image": "https://siddh4194.github.io/og-image.svg",
             "jobTitle": "Full-Stack & Platform Infrastructure Engineer",
             "knowsAbout": ["Go", "Node.js", "GCP", "Redis", "MQTT", "IoT", "Distributed Systems", "PostgreSQL", "Docker"],
             "sameAs": [
-              "https://github.com/Siddh4194",
+              "https://github.com/siddh4194",
               "https://www.linkedin.com/in/siddhant-kadam/"
             ]
           })}

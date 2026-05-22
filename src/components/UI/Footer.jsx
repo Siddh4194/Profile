@@ -10,7 +10,7 @@ export const Footer = () => {
     },
     {
       label: "GitHub",
-      href: "https://github.com/Siddh4194",
+      href: "https://github.com/siddh4194",
       icon: FaGithub,
     },
     {

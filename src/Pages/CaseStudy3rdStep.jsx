@@ -16,18 +16,18 @@ const CaseStudy3rdStep = () => {
       <Helmet>
         <title>3rd Step Verification — Case Study</title>
         <meta name="description" content="A cryptographic hash-chain verification system that eliminates anonymous social media abuse. Every post tied to a verified user hash." />
-        <link rel="canonical" href="https://Siddh4194.github.io/Profile/case-study/3rd-step-verification" />
+        <link rel="canonical" href="https://siddh4194.github.io/case-study/3rd-step-verification" />
 
         <meta property="og:type" content="article" />
         <meta property="og:title" content="3rd Step Verification — Case Study" />
         <meta property="og:description" content="Chained cryptographic hashes for social media accountability — preventing anonymous abuse by tying every post to a verified user hash." />
-        <meta property="og:url" content="https://Siddh4194.github.io/Profile/case-study/3rd-step-verification" />
-        <meta property="og:image" content="https://Siddh4194.github.io/Profile/og-image.svg" />
+        <meta property="og:url" content="https://siddh4194.github.io/case-study/3rd-step-verification" />
+        <meta property="og:image" content="https://siddh4194.github.io/og-image.svg" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="3rd Step Verification — Case Study" />
         <meta name="twitter:description" content="Chained cryptographic hashes for social media accountability — preventing anonymous abuse by tying every post to a verified user hash." />
-        <meta name="twitter:image" content="https://Siddh4194.github.io/Profile/og-image.svg" />
+        <meta name="twitter:image" content="https://siddh4194.github.io/og-image.svg" />
 
         <script type="application/ld+json">
           {JSON.stringify({
@@ -46,8 +46,8 @@ const CaseStudy3rdStep = () => {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://Siddh4194.github.io/Profile/" },
-              { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://Siddh4194.github.io/Profile/case-study" },
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://siddh4194.github.io/" },
+              { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://siddh4194.github.io/case-study" },
               { "@type": "ListItem", "position": 3, "name": "3rd Step Verification" }
             ]
           })}
@@ -272,7 +272,7 @@ const CaseStudy3rdStep = () => {
               the verification API that sits between the client and the post endpoint.
             </p>
             <a
-              href="https://github.com/Siddh4194/3rdStepVerification"
+              href="https://github.com/siddh4194/3rdStepVerification"
               target="_blank"
               className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
             >

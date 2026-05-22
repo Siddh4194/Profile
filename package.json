@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Siddh4194.github.io/Profile",
+  "homepage": "https://siddh4194.github.io",
   "scripts": {
     "dev": "vite",
     "build": "vite build && node scripts/generate-static-routes.js",

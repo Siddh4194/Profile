@@ -10,10 +10,9 @@ import { CursorFollower } from "./components/UI/CursorFollower";
 const AIChat = lazy(() => import("./components/UI/AIChat"));
 
 function App() {
-  const basename = import.meta.env.PROD ? "/Profile" : "/";
   return (
     <HelmetProvider>
-      <BrowserRouter basename={basename}>
+      <BrowserRouter basename="/">
         <CursorFollower />
         <Suspense fallback={null}><AIChat /></Suspense>
         <Routes>

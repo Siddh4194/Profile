@@ -31,18 +31,18 @@ const CaseStudyLandslide = () => {
       <Helmet>
         <title>Landslide Early Detection System — Case Study</title>
         <meta name="description" content="How we built a simple copper-rod-based early warning system for landslide-prone communities. 1st Prize project." />
-        <link rel="canonical" href="https://Siddh4194.github.io/Profile/case-study/landslide-detection" />
+        <link rel="canonical" href="https://siddh4194.github.io/case-study/landslide-detection" />
 
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Landslide Early Detection System — Case Study" />
         <meta property="og:description" content="Copper rods, wire displacement, and an alarm — a simple early warning system for landslide-prone communities." />
-        <meta property="og:url" content="https://Siddh4194.github.io/Profile/case-study/landslide-detection" />
-        <meta property="og:image" content="https://Siddh4194.github.io/Profile/og-image.svg" />
+        <meta property="og:url" content="https://siddh4194.github.io/case-study/landslide-detection" />
+        <meta property="og:image" content="https://siddh4194.github.io/og-image.svg" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Landslide Early Detection System — Case Study" />
         <meta name="twitter:description" content="Copper rods, wire displacement, and an alarm — a simple early warning system for landslide-prone communities." />
-        <meta name="twitter:image" content="https://Siddh4194.github.io/Profile/og-image.svg" />
+        <meta name="twitter:image" content="https://siddh4194.github.io/og-image.svg" />
 
         <script type="application/ld+json">
           {JSON.stringify({
@@ -62,8 +62,8 @@ const CaseStudyLandslide = () => {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://Siddh4194.github.io/Profile/" },
-              { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://Siddh4194.github.io/Profile/case-study" },
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://siddh4194.github.io/" },
+              { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://siddh4194.github.io/case-study" },
               { "@type": "ListItem", "position": 3, "name": "Landslide Early Detection System" }
             ]
           })}
@@ -245,7 +245,7 @@ const CaseStudyLandslide = () => {
             {imageFiles.map((img, i) => (
               <div key={i}>
                 <img
-                  src={`${import.meta.env.BASE_URL}images/landslide/${encodeURIComponent(img.file)}`}
+                  src={`/images/landslide/${encodeURIComponent(img.file)}`}
                   alt={img.label}
                   className="w-full rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-[#111]"
                 />

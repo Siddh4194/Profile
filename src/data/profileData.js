@@ -1,4 +1,4 @@
-const siteUrl = "https://Siddh4194.github.io/Profile";
+const siteUrl = "https://siddh4194.github.io";
 
 export const profileData = {
   name: "Siddhant Kadam",
@@ -6,9 +6,9 @@ export const profileData = {
   location: "Maharashtra, India",
   email: "siddh4194@gmail.com",
   careerEmail: "siddhantkadam.career@gmail.com",
-  github: "https://github.com/Siddh4194",
+  github: "https://github.com/siddh4194",
   linkedin: "https://www.linkedin.com/in/siddhant-kadam/",
-  website: "https://Siddh4194.github.io/Profile",
+  website: "https://siddh4194.github.io",
   resume: "/resume.pdf",
   tagline: "Code that matters. Architecture that scales.",
   summary:
@@ -157,7 +157,7 @@ export const profileData = {
   ],
   socialLinks: [
     { platform: "Email", url: "mailto:siddh4194@gmail.com" },
-    { platform: "GitHub", url: "https://github.com/Siddh4194" },
+    { platform: "GitHub", url: "https://github.com/siddh4194" },
     {
       platform: "LinkedIn",
       url: "https://www.linkedin.com/in/siddhant-kadam/",
@@ -248,7 +248,7 @@ export const profileData = {
         "Law enforcement has complete cryptographic trail from post to user",
         "Works preventively, not reactively — stops anonymous abuse before post goes live",
       ],
-      github: "https://github.com/Siddh4194/3rdStepVerification",
+      github: "https://github.com/siddh4194/3rdStepVerification",
       reference:
         "https://www.thehindu.com/news/cities/mumbai/at-least-one-dead-10-injured-internet-suspended-in-maharashtras-satara-over-social-media-post/article67295790.ece",
     },

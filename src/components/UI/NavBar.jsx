@@ -47,7 +47,7 @@ export const Navbar = ({ isDark, toggleDark, activeSection }) => {
           Case Studies
         </Link>
         <a
-          href={`${import.meta.env.BASE_URL}resume.pdf`}
+          href="/resume.pdf"
           target="_blank"
           className="flex items-center gap-1 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
         >
@@ -66,7 +66,7 @@ export const Navbar = ({ isDark, toggleDark, activeSection }) => {
         <a href="mailto:siddh4194@gmail.com" className="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors" title="Email">
           <HiOutlineMail size={20} />
         </a>
-        <a href="https://github.com/Siddh4194" target="_blank" className="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors" title="GitHub">
+        <a href="https://github.com/siddh4194" target="_blank" className="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors" title="GitHub">
           <FaGithub size={19} />
         </a>
         <a href="https://www.linkedin.com/in/siddhant-kadam/" target="_blank" className="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors" title="LinkedIn">

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://Siddh4194.github.io/Profile/sitemap.xml
+Sitemap: https://siddh4194.github.io/sitemap.xml

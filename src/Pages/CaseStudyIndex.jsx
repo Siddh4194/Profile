@@ -26,7 +26,7 @@ const caseStudies = [
 ];
 
 const CaseStudyIndex = () => {
-  const siteUrl = "https://Siddh4194.github.io/Profile";
+  const siteUrl = "https://siddh4194.github.io";
   return (
     <div className="bg-white dark:bg-[#0a0a0a] min-h-screen transition-colors duration-300">
       <Helmet>
