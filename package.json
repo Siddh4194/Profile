@@ -6,7 +6,7 @@
   "homepage": "https://Siddh4194.github.io/Profile",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-static-routes.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "deploy": "npm run build && copy dist\\index.html dist\\404.html && gh-pages -d dist"

@@ -1,10 +1,4 @@
-const API_KEYS = [
-  import.meta.env.VITE_GEMINI_API_KEY,
-  import.meta.env.VITE_GEMINI_API_KEY_2,
-  import.meta.env.VITE_GEMINI_API_KEY_3,
-].filter(Boolean);
-
-const MODEL = "gemini-3.1-flash-lite";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 const buildSystemPrompt = (profileData) =>
   `Your name is Sodd. You are Siddhant Kadam's personal AI assistant. You speak as if you personally know him and are representing him. Your ONLY purpose is to answer questions about Siddhant Kadam based on the profile information provided below.
@@ -58,55 +52,40 @@ When the user asks you to show a section, switch theme, or go to a page, respond
 Here is the profile information about Siddhant Kadam:
 ${JSON.stringify(profileData, null, 2)}`;
 
-async function tryKey(apiKey, question, profileData, history) {
+export async function askSodd(question, profileData, history = []) {
   const systemPrompt = buildSystemPrompt(profileData);
   const MODEL_ACK = "I understand. I'm Sodd, Siddhant's personal assistant.";
 
-  const contents = [
-    { role: "user", parts: [{ text: systemPrompt }] },
-    { role: "model", parts: [{ text: MODEL_ACK }] },
-    ...history.map((msg) => ({
-      role: msg.role === "user" ? "user" : "model",
-      parts: [{ text: msg.text }],
-    })),
-    { role: "user", parts: [{ text: question }] },
+  const conversation = [
+    { role: "user", text: systemPrompt },
+    { role: "bot", text: MODEL_ACK },
+    ...history,
+    { role: "user", text: question },
   ];
 
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${apiKey}`;
-  const res = await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      contents,
-      generationConfig: { temperature: 0.7, maxOutputTokens: 500 },
-    }),
-  });
+  const fullPrompt = conversation
+    .map((m) => `${m.role === "user" ? "User" : "Assistant"}: ${m.text}`)
+    .join("\n\n");
 
-  if (res.status === 429) return { status: 429 };
-  if (!res.ok) {
-    const err = await res.text();
-    console.error("Gemini API error:", err);
-    return { status: res.status, error: err };
+  try {
+    const res = await fetch(`${API_URL}/api/ask`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ prompt: fullPrompt }),
+    });
+
+    if (!res.ok) {
+      const errText = await res.text();
+      console.error("Backend error:", errText);
+      return "Sorry, I had trouble connecting. Please try again later.";
+    }
+
+    const data = await res.json();
+    return (
+      data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || "No response."
+    );
+  } catch (err) {
+    console.error("askSodd error:", err);
+    return "Sorry, I had trouble connecting. Please try again later.";
   }
-
-  const data = await res.json();
-  return {
-    status: 200,
-    text:
-      data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || "No response.",
-  };
-}
-
-export async function askSodd(question, profileData, history = []) {
-  if (API_KEYS.length === 0) {
-    return "Sorry, Sodd is taking a nap right now. Ask Siddhant to wake me up by adding the API key!";
-  }
-
-  for (let i = 0; i < API_KEYS.length; i++) {
-    const result = await tryKey(API_KEYS[i], question, profileData, history);
-    if (result.status === 200) return result.text;
-    if (result.status === 429 && i < API_KEYS.length - 1) continue;
-  }
-
-  return "Sorry, I had trouble connecting. Please try again later.";
 }
