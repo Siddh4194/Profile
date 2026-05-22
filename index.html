@@ -3,6 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function() {
+        var t = localStorage.getItem("theme");
+        if (t === "dark" || (!t && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
     <meta name="google-site-verification" content="N1YlT_d73kApAppqGYjCBXsw3kLsp0nipS9McrkJPOY" />
     <meta name="description" content="Siddhant Kadam — Full-Stack &amp; Platform Infrastructure Engineer specializing in distributed systems, Go, Node.js, GCP, IoT, and infrastructure automation." />
     <meta property="og:title" content="Siddhant Kadam · Full-Stack &amp; Platform Infrastructure Engineer" />
