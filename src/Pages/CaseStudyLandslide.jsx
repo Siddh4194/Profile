@@ -50,9 +50,18 @@ const CaseStudyLandslide = () => {
             "@type": "Article",
             "headline": "Landslide Early Detection System",
             "description": "A simple copper-rod-based early warning system for detecting ground movement in landslide-prone areas.",
+            "image": "https://siddh4194.github.io/og-image.svg",
             "author": {
               "@type": "Person",
               "name": "Siddhant Kadam"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Siddhant Kadam"
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://siddh4194.github.io/case-study/landslide-detection"
             },
             "award": "1st Prize — Project Competition"
           })}

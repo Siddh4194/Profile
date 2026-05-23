@@ -58,6 +58,16 @@ const CaseStudyIndex = () => {
             }
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": `${siteUrl}/` },
+              { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": `${siteUrl}/case-study` }
+            ]
+          })}
+        </script>
       </Helmet>
       {/* Top bar */}
       <div className="sticky top-0 z-50 bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-900 px-6 py-4">

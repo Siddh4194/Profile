@@ -35,9 +35,18 @@ const CaseStudy3rdStep = () => {
             "@type": "Article",
             "headline": "3rd Step Verification",
             "description": "A cryptographic hash-chain verification system that prevents anonymous social media abuse by requiring email-verified hashes for every post.",
+            "image": "https://siddh4194.github.io/og-image.svg",
             "author": {
               "@type": "Person",
               "name": "Siddhant Kadam"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Siddhant Kadam"
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://siddh4194.github.io/case-study/3rd-step-verification"
             }
           })}
         </script>

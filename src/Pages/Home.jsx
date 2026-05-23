@@ -347,6 +347,31 @@ const Home = () => {
             ]
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "url": "https://siddh4194.github.io/",
+            "name": "Siddhant Kadam",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://siddh4194.github.io/?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://siddh4194.github.io/" }
+            ]
+          })}
+        </script>
       </Helmet>
       <div className="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-900 px-6 py-4">
         <Navbar isDark={isDark} toggleDark={toggleDark} activeSection={activeSection} />
