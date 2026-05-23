@@ -132,6 +132,7 @@ const AIChat = () => {
 
     actions.forEach((action) => {
       if (action.command === "NAVIGATE") {
+        setOpen(false);
         navigate(action.value);
       } else {
         setTimeout(() => executeAction(action), 300);
@@ -176,7 +177,7 @@ const AIChat = () => {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-6 right-6 z-50 p-3.5 bg-black dark:bg-white text-white dark:text-black rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
+        className="hidden lg:block fixed bottom-6 right-6 z-50 p-3.5 bg-black dark:bg-white text-white dark:text-black rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
         title="Ask about Siddhant"
       >
         <FiMessageSquare size={22} />

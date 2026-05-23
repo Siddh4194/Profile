@@ -250,13 +250,19 @@ const HeroSection = () => (
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8, duration: 0.6 }}
       >
-        <a
-          href="#experience"
+        <button
+          onClick={() => {
+            const el = document.getElementById("experience");
+            if (el) {
+              const top = el.getBoundingClientRect().top + window.scrollY - 72;
+              window.scrollTo({ top, behavior: "smooth" });
+            }
+          }}
           className="inline-flex items-center gap-2 text-sm font-medium text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors animate-bounce"
         >
           <FiArrowDown size={16} />
           Explore my work
-        </a>
+        </button>
       </motion.div>
     </motion.div>
   </section>
@@ -314,7 +320,7 @@ const Home = () => {
   const toggleDark = () => setIsDark((prev) => !prev);
 
   return (
-    <div className="bg-white dark:bg-[#0a0a0a] transition-colors duration-300">
+    <div className="bg-white dark:bg-[#0a0a0a] transition-colors duration-300 pb-28 lg:pb-0">
       <Helmet prioritizeSeoTags>
         <html lang="en" />
         <title>Siddhant Kadam · Full-Stack &amp; Platform Infrastructure Engineer</title>
