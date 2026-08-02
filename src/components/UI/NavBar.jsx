@@ -1,6 +1,6 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
-import { FiExternalLink, FiBookOpen } from "react-icons/fi";
+import { FiExternalLink, FiBookOpen, FiFeather } from "react-icons/fi";
 import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
@@ -39,6 +39,13 @@ export const Navbar = ({ isDark, toggleDark, activeSection }) => {
             </a>
           );
         })}
+        <Link
+          to="/blog"
+          className="relative px-3 py-1.5 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5 transition-colors rounded-lg flex items-center gap-1.5"
+        >
+          <FiFeather size={13} />
+          Blogs
+        </Link>
         <Link
           to="/case-study"
           className="relative px-3 py-1.5 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5 transition-colors rounded-lg flex items-center gap-1.5"

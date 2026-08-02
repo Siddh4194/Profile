@@ -21,4 +21,14 @@ export const routes = [
     priority: "0.9",
     changefreq: "monthly",
   },
+  {
+    path: "/blog/",
+    priority: "0.8",
+    changefreq: "monthly",
+  },
+  {
+    path: "/blog/amazon-prime-video-monolith/",
+    priority: "0.8",
+    changefreq: "monthly",
+  },
 ];

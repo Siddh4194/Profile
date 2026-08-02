@@ -11,15 +11,51 @@ export const BlogSection = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="text-4xl md:text-5xl font-extrabold text-black dark:text-white mb-2">
-          Writing<span className="text-gray-300 dark:text-gray-600">.</span>
-        </h2>
-        <p className="text-gray-500 dark:text-gray-400 text-lg mb-10 max-w-2xl">
-          Thoughts on distributed systems, infrastructure, and engineering.
-        </p>
+        <div className="flex items-end justify-between mb-10">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-black dark:text-white mb-2">
+              Writing<span className="text-gray-300 dark:text-gray-600">.</span>
+            </h2>
+            <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl">
+              Thoughts on distributed systems, infrastructure, and engineering.
+            </p>
+          </div>
+          <Link
+            to="/blog"
+            className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors shrink-0"
+          >
+            <FiBookOpen size={14} />
+            All posts
+          </Link>
+        </div>
       </motion.div>
 
       <div className="space-y-4">
+        <Link
+          to="/blog/amazon-prime-video-monolith"
+          className="group block border border-gray-200 dark:border-gray-800 rounded-2xl p-6 bg-white dark:bg-[#111] hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-black/20 transition-all duration-300"
+        >
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full border text-violet-700 dark:text-violet-300 border-violet-400 dark:border-violet-600 bg-violet-50 dark:bg-violet-900/20">
+              Blog
+            </span>
+            <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full border text-orange-700 dark:text-orange-400 border-orange-300 dark:border-orange-600 bg-orange-50 dark:bg-orange-900/20">
+              System Design
+            </span>
+          </div>
+          <h3 className="text-base font-bold text-black dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
+            Amazon Prime Video: From Microservices to Monolith
+          </h3>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+            Amazon Prime Video cut VQA costs by 90% — not by adding more services, but by
+            collapsing the whole pipeline into a single monolith. Here&apos;s why that worked.
+          </p>
+          <span className="inline-flex items-center gap-1 text-sm font-medium text-gray-400 dark:text-gray-500 group-hover:text-black dark:group-hover:text-white transition-colors mt-3">
+            <FiBookOpen size={14} />
+            Read full article
+          </span>
+        </Link>
+
         <Link
           to="/case-study/3rd-step-verification"
           className="group block border border-gray-200 dark:border-gray-800 rounded-2xl p-6 bg-white dark:bg-[#111] hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-black/20 transition-all duration-300"

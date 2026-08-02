@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FiExternalLink, FiChevronUp } from "react-icons/fi";
+import { FiExternalLink, FiChevronUp, FiFeather } from "react-icons/fi";
 
 export const MobileBottomNav = ({ activeSection }) => {
   const [soddOpen, setSoddOpen] = useState(false);
@@ -47,6 +47,13 @@ export const MobileBottomNav = ({ activeSection }) => {
             </a>
           );
         })}
+        <Link
+          to="/blog"
+          className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors rounded-lg whitespace-nowrap"
+        >
+          <FiFeather size={12} />
+          Blogs
+        </Link>
         <Link
           to="/case-study"
           className="px-3 py-2 text-sm font-medium text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors rounded-lg whitespace-nowrap"
