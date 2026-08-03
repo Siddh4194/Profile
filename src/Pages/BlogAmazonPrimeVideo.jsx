@@ -14,8 +14,8 @@ import {
   FiGitCommit,
 } from "react-icons/fi";
 
-import costReductionDiagram from "../assets/blogs/_- visual selection.svg";
-import scalabilityDiagram from "../assets/blogs/_- visual selection (1).svg";
+const costReductionDiagram = "/assets/blogs/cost-reduction-diagram.svg";
+const scalabilityDiagram = "/assets/blogs/scalability-diagram.svg";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },

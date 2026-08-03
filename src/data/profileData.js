@@ -187,6 +187,18 @@ export const profileData = {
       description:
         "Full case study of a cryptographic hash-chain verification system that prevents anonymous social media abuse.",
     },
+    {
+      path: "/blog",
+      title: "Blog",
+      description:
+        "Index page listing all blog articles on distributed systems, platform infrastructure, and engineering decisions.",
+    },
+    {
+      path: "/blog/amazon-prime-video-monolith",
+      title: "Amazon Prime Video: From Microservices to Monolith",
+      description:
+        "How moving Video Quality Analysis off AWS Step Functions and S3 onto a containerized monolith cut infrastructure costs by 90%.",
+    },
   ],
   caseStudies: {
     landslideDetection: {
@@ -253,4 +265,49 @@ export const profileData = {
         "https://www.thehindu.com/news/cities/mumbai/at-least-one-dead-10-injured-internet-suspended-in-maharashtras-satara-over-social-media-post/article67295790.ece",
     },
   },
+  blogs: [
+    {
+      slug: "amazon-prime-video-monolith",
+      title: "Amazon Prime Video: From Microservices to Monolith",
+      path: "/blog/amazon-prime-video-monolith",
+      url: `${siteUrl}/blog/amazon-prime-video-monolith`,
+      tags: ["System Design", "AWS"],
+      date: "Jan 2026",
+      readTime: "6 min read",
+      subtitle:
+        "How a containerized monolith cut VQA infrastructure costs by 90%",
+      summary:
+        "Amazon Prime Video cut 90% of the cost of its Video Quality Analysis (VQA) pipeline by tearing down a chain of AWS Step Functions + Lambda detectors (with S3 bucket handoffs) and replacing it with a single containerized monolith that passes frames between processors in memory.",
+      keyPoints: [
+        "VQA pipeline was built as AWS Step Functions calling serverless (Lambda) detectors, handing off intermediate frames via S3 buckets",
+        "AWS bills per Step Function state transition, and S3 bills per create/update/delete — the per-transition + per-S3-operation costs stacked up at tens of thousands of frames per second",
+        "Fix: containerize the entire workflow into a single app (ECS + Fargate) and pass frames between processors in memory (nanoseconds, free)",
+        "Result: 90% cost reduction — no more S3 round-trips or per-transition billing",
+        "Bonus: scalability went from ~5% of capacity to beyond 5% because container orchestration overhead between nodes disappeared",
+        "In-memory handoff: free, nanoseconds-fast, no orchestration layer holding state",
+      ],
+      awsServices: [
+        {
+          name: "AWS Step Functions",
+          detail:
+            "State machine service — lays out nodes, state, and sequence; powerful for orchestration, but every transition is a chargeable event.",
+        },
+        {
+          name: "ECS + Fargate",
+          detail:
+            "Amazon's container platform; give it a container image and it figures out CPU/memory. No servers to babysit.",
+        },
+        {
+          name: "EC2 (VM-based)",
+          detail:
+            "Classic VM with a full OS — more control, more overhead; great for persistent boxes, less for cheap scale.",
+        },
+      ],
+      takeaways: [
+        "Microservices are a tool, not a badge — worth it only when you need independent scaling or separate deploy cycles; tight coupling just makes them tax",
+        "The little costs add up — fractions of a cent per transition/write multiply into huge bills at scale",
+        "Match the architecture to the actual problem — Prime Video collapsed the pipeline only where boundaries cost more than they saved",
+      ],
+    },
+  ],
 };
